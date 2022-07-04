@@ -50,7 +50,7 @@ import App from './App.vue'
 import '@pathscale/bulma-pull-2981-css-var-only'
 import '@pathscale/bulma-extensions-css-var'
 import '@pathscale/fonts-metroclean'
-import { router } from './router'
+import { router } from '/@/router'
 import Icon from './Icon.vue'
 import { Loader, PaginatedTable, Modal, BasicTable } from './components'
 

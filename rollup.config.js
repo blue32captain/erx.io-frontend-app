@@ -5,15 +5,15 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import builtins from 'builtin-modules'
 import chalk from 'chalk'
 import path, { join } from 'path'
-import { external } from '../package.json'
-import pluginEsbuild from './plugins/rollup.esbuild.plugin'
-import pluginResolve from './plugins/rollup.assets.plugin'
-import pluginPreload from './plugins/rollup.preload.plugin'
-import pluginRenedrer from './plugins/rollup.renderer.plugin'
-import pluginStatic from './plugins/rollup.static.plugin'
-import pluginTypescript from './plugins/rollup.typescript.plugin'
-import pluginWorker from './plugins/rollup.worker.plugin'
-import pluginVueDevtools from './plugins/rollup.devtool.plugin'
+import { external } from './package.json'
+import pluginEsbuild from './scripts/plugins/rollup.esbuild.plugin'
+import pluginResolve from './scripts/plugins/rollup.assets.plugin'
+import pluginPreload from './scripts/plugins/rollup.preload.plugin'
+import pluginRenedrer from './scripts/plugins/rollup.renderer.plugin'
+import pluginStatic from './scripts/plugins/rollup.static.plugin'
+import pluginTypescript from './scripts/plugins/rollup.typescript.plugin'
+import pluginWorker from './scripts/plugins/rollup.worker.plugin'
+import pluginVueDevtools from './scripts/plugins/rollup.devtool.plugin'
 
 import html, { makeHtmlAttributes } from '@rollup/plugin-html'
 import dotenv from 'dotenv'
@@ -128,7 +128,7 @@ const config = [{
       namedExports: true
     }),
     html({
-      publicPath: '/',
+      publicPath: env.parsed.BASE_URL,
       title: 'ERX',
       template,
     }),
