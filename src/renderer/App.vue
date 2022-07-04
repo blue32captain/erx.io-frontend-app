@@ -1,20 +1,28 @@
-<template >
-  <div class="app">
-    <navigator />
-    <router-view> </router-view>
-  </div>
-</template>
+<script lang="ts">
+import { onMounted } from 'vue'
 
-<script lang=ts>
-import { defineComponent } from 'vue'
-import Navigator from '/@/components/HomeNavigator.vue'
+import { setTheme, light } from './theming'
+import wssConfigure from './api/wssConfigure'
 
-export default defineComponent({
-  components: {
-    Navigator
-  },
-})
+import useLogin from './pages/Auth/Login/hooks/useLogin'
+
+export default {
+  name: 'App',
+  setup() {
+    wssConfigure()
+    const { init } = useLogin()
+    onMounted(() => {
+      setTheme(light)
+      init()
+    })
+  }
+}
 </script>
 
-<style>
-</style>
+<template>
+  <router-view />
+  <!-- css purger whitelist -->
+  <div v-if="false" class="v-toast-container v-toast-container--bottom">
+    <div class="notification is-success is-danger is-warning v-toast--bottom-right" />
+  </div>
+</template>
