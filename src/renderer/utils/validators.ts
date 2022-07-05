@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-unsafe-regex -- ignore */
 import { ref } from 'vue'
 import { t } from '/@/i18n'
 

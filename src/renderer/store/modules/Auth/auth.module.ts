@@ -12,7 +12,7 @@ import {
 
 import { useLocalStorage } from 'vue-composable'
 
-import $toast from '/@/main'
+import $toast from '/@/index'
 import { t } from '/@/i18n'
 import { SubmitRecoveryAnswersDone } from '/@/models/auth/response'
 
