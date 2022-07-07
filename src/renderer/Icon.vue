@@ -1,18 +1,34 @@
 <script lang="ts">
 import { VIcon } from '@pathscale/vue3-ui'
 
+import { iconList } from '/@/data/icon.data'
+
 export default {
   name: 'Icon',
   components: { VIcon },
-  inheritAttrs: false,
+  props: {
+    size: String,
+    width: String,
+    height: String,
+    bundle: String,
+    name: String,
+    customClass: String,
+    customSize: String,
+    fill: {
+      type: String,
+    },
+    cacheVersion: {
+      type: String,
+      default: '1.0.0',
+    },
+  },
   setup(props) {
-    const version = '1.0.10'
-    const bundle = 'icons'
-    return { version, bundle }
+    const svg = iconList[props.name](props.width, props.height, props.fill)
+    return { svg }
   },
 }
 </script>
 
 <template>
-  <v-icon :cache-version="version" :bundle="bundle" v-bind="$attrs" />
+  <span class="inline-block" v-html="svg"/>
 </template>

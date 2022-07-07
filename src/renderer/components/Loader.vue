@@ -1,5 +1,3 @@
-
-
 <script lang="ts">
 export default {
   name: 'Loader',
@@ -11,7 +9,6 @@ export default {
   },
 }
 </script>
-
 
 <template>
   <div class="loader-wrapper">
@@ -25,4 +22,3 @@ export default {
   min-height: 1rem;
 }
 </style>
-

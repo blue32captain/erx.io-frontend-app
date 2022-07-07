@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import './Icons.vue'
 
 import i18n from './i18n'
 
@@ -114,7 +113,7 @@ app.use(i18n).mount('#app')
 
 const { $toast } = app.config.globalProperties
 
-app.directive('visible', function (el, binding) {
+app.directive('visible', function(el, binding) {
   el.style.visibility = binding.value ? 'visible' : 'hidden'
 })
 
